@@ -1,4 +1,4 @@
-package com.bootcamp.msTransfe;
+package com.bootcamp.msTransfer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
