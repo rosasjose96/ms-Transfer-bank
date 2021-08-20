@@ -16,6 +16,9 @@ import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
+/**
+ * The type Transfer handler.
+ */
 @Component
 public class TransferHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(TransferHandler.class);
@@ -29,11 +32,23 @@ public class TransferHandler {
     @Autowired
     private ITransactionDTOService transactionService;
 
+    /**
+     * Find all mono.
+     *
+     * @param request the request
+     * @return the mono
+     */
     public Mono<ServerResponse> findAll(ServerRequest request){
         return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
                 .body(service.findAll(), Transfer.class);
     }
 
+    /**
+     * Find transfer mono.
+     *
+     * @param request the request
+     * @return the mono
+     */
     public Mono<ServerResponse> findTransfer(ServerRequest request) {
         String id = request.pathVariable("id");
         return service.findById(id).flatMap((c -> ServerResponse
@@ -44,6 +59,12 @@ public class TransferHandler {
         );
     }
 
+    /**
+     * Create transfer mono.
+     *
+     * @param request the request
+     * @return the mono
+     */
     public Mono<ServerResponse> createTransfer(ServerRequest request){
 
         Mono<Transfer> transferMono = request.bodyToMono(Transfer.class);
@@ -82,6 +103,12 @@ public class TransferHandler {
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
 
+    /**
+     * Delete transfer mono.
+     *
+     * @param request the request
+     * @return the mono
+     */
     public Mono<ServerResponse> deleteTransfer(ServerRequest request){
 
         String id = request.pathVariable("id");
@@ -94,6 +121,12 @@ public class TransferHandler {
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
 
+    /**
+     * Update transfer mono.
+     *
+     * @param request the request
+     * @return the mono
+     */
     public Mono<ServerResponse> updateTransfer(ServerRequest request){
         Mono<Transfer> transferMono = request.bodyToMono(Transfer.class);
         String id = request.pathVariable("id");

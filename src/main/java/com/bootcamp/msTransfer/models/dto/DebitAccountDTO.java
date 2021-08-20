@@ -2,6 +2,9 @@ package com.bootcamp.msTransfer.models.dto;
 
 import lombok.*;
 
+/**
+ * The type Debit account dto.
+ */
 @Getter
 @Setter
 @AllArgsConstructor

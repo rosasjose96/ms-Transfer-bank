@@ -10,6 +10,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+/**
+ * The type Transfer.
+ */
 @Document(collection = "transfer")
 @Data
 @AllArgsConstructor
