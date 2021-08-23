@@ -92,7 +92,7 @@ public class TransferHandler {
                         transaction.setCustomerIdentityNumber(originAccount.getCustomerIdentityNumber());
                         transaction.setTransactionAmount(transferRequest.getAmount());
                         transaction.setIdentityNumber(transferRequest.getOriginAccount());
-                        transaction.setDestinationAccount(transferRequest.getDestinationAccount());
+                        transaction.setDestination(transferRequest.getDestinationAccount());
                         return transactionService.saveTransaction(transaction);
                 })
                 .flatMap(transfer ->  service.create(transferRequest)))
